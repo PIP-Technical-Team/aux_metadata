@@ -1,0 +1,15 @@
+﻿colname,Fieldname (order)
+title,Survey title
+year_start,Year start
+year_end,Year end
+authoring_entity_name,Authoring entity
+abstract,Abstract
+collection_dates_cycle,Collection dates cycle
+collection_dates_start,Collection dates start
+collection_dates_end,Collection dates end
+coverage,Coverage
+sampling_procedure,Sampling procedure
+collection_mode,Collection mode
+coll_situation,Data collection notes
+weight,Weight
+cleaning_operations,Cleaning operations
