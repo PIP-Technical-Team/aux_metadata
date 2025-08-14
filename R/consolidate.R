@@ -49,6 +49,7 @@ jn[(nalink), link := gsub("([^_]+)_([^_]+)_([^_]+)(.+)",
 
 
 setcolorder(jn, c("id", "svy_id", "link"))
+setorder(jn, svy_id, na.last = TRUE)
 
 fwrite(jn, "metadata.csv")
 
