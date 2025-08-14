@@ -38,6 +38,17 @@ jn[, .joyn := fcase(
   default = ""
 )]
 
+jn[, nalink := is.na(link)]
+
+jn[(nalink), link := gsub("([^_]+)_([^_]+)_([^_]+)(.+)",
+                        "\\1_\\2_\\3",
+                        svy_id)
+   ][, nalink := NULL]
+
+# jn[(nalink), .(link, svy_id)]
+
+
+setcolorder(jn, c("id", "svy_id", "link"))
 
 fwrite(jn, "metadata.csv")
 
