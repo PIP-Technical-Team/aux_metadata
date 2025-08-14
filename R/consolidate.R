@@ -1,7 +1,7 @@
 library(fastverse)
 
-m2 <- fread("metadata.csv")
-m1 <- fread("pip_metadata.csv")
+m1 <- fread("old_data/pip_metadata.csv")
+m2 <- fread("old_data/metadata.csv")
 
 
 # Remove columns where all values are NA in m1
@@ -28,4 +28,16 @@ jn <- joyn::joyn(m2, m1, "svy_id",
            keep = "full",
            # y_vars_to_keep = "link",
            update_NAs = TRUE)
+
+
+jn[, .joyn := fcase(
+  .joyn == "x", "only metadata",
+  .joyn == "y", "only pip_metadata",
+  .joyn == "x & y", "in both",
+  .joyn == "NA updated", "NAs updated",
+  default = ""
+)]
+
+
+fwrite(jn, "metadata.csv")
 
